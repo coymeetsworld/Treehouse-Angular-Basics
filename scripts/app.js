@@ -1,6 +1,9 @@
 
 angular.module("todoListApp", [])
-.controller('mainCtrl', function($scope) {
+.controller('mainCtrl', function($scope, dataService) {
+  
+  $scope.helloConsole = dataService.helloConsole;
+
   $scope.learningNgChange = function() {
     console.log("An input changed!");
   };
@@ -13,5 +16,12 @@ angular.module("todoListApp", [])
     {"name": "run"},
     {"name": "swim"}
   ]
+
+})
+.service('dataService', function() {
+ 
+  this.helloConsole = function() {
+    console.log('This is a hello console service!');
+  }
 
 });
