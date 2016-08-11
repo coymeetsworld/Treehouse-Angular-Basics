@@ -20,8 +20,11 @@ angular.module('todoListApp')
     $scope.todos.splice(index, 1);
   };
 
-  $scope.saveTodo = function(todo) {
-    dataService.saveTodo(todo);
+  $scope.saveTodos = function(todo) {
+    var filteredTodos = $scope.todos.filter(function(todo) {
+      return todo.edited;
+    });
+    dataService.saveTodos(filteredTodos);
   };
 
 });
